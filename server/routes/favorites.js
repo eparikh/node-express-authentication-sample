@@ -51,20 +51,6 @@ var favorites = {
         .catch(function(err){
           return next(err);
         })
-  },
-  remove: function(req, res, next) {
-    var username = getUsername(req);
-    db.none("delete from favorites where username = $1 and show = $2", [username, req.body.show])
-        .then(function(){
-          res.status(200)
-            .json({
-              status: 'success',
-              message: 'Favorite removed'
-            })
-        })
-        .catch(function(err){
-          return next(err);
-        })
   }
 };
  
